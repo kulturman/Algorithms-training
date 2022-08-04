@@ -5,13 +5,13 @@ public class MaximumContiguousSubArrayOfKElements {
         int windowStart = 0;
 
         for (int windowEnd = 0; windowEnd < arr.length; windowEnd++) {
-        currentSum += arr[windowEnd];
+            currentSum += arr[windowEnd];
 
-        if (windowEnd >= k - 1) {
-            max = Math.max(max, currentSum);
-            currentSum -= arr[windowStart];
-            windowStart++;
-        }
+            if (windowEnd >= k - 1) {
+                max = Math.max(max, currentSum);
+                currentSum -= arr[windowStart];
+                windowStart++;
+            }
 
         }
 
