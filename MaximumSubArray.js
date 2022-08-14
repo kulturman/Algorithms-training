@@ -1,15 +1,12 @@
 function maximumSubArray(arr) {
     let sum = 0;
-    let windowStart = 0;
-    let windowEnd = 0;
     let maxSum = Number.MIN_SAFE_INTEGER;
 
-    for (windowEnd = 0; windowEnd < arr.length; windowEnd++) {
-        sum += arr[windowEnd];
+    for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
+        sum += arr[windowEnd]; 
 
         if (sum < 0) {
             sum = 0;
-            windowStart++;
         }
 
         maxSum = Math.max(maxSum, sum);
