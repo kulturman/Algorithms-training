@@ -1,7 +1,7 @@
-function permutationInAString(str, pattern) {
+function stringAnagrams(str, pattern) {
+    let patternLettersFrenquency = {};
     let windowStart = 0;
     let matched = 0;
-    const patternLettersFrenquency = {};
     //Populate the patternLettersFrenquency object with the pattern letters and their frenquency
     for (let letter of pattern) {
         patternLettersFrenquency[letter] = (patternLettersFrenquency[letter] || 0) + 1;
@@ -19,22 +19,26 @@ function permutationInAString(str, pattern) {
         }
 
         if (matched === Object.keys(patternLettersFrenquency).length) {
-            return true;
+            const indexes = []
+            for (let i = windowStart; i <= windowEnd; i++) {
+                indexes.push(i);
+            }
+            return indexes;
         }
 
         if (windowEnd >= pattern.length - 1) {
-            let leftCharacter = str[windowStart];
+            let leftChar = str[windowStart];
             windowStart++;
 
-            if (leftCharacter in patternLettersFrenquency) {
-                if (patternLettersFrenquency[leftCharacter] === 0) {
+            if (leftChar in patternLettersFrenquency) {
+                if (patternLettersFrenquency[leftChar] === 0) {
                     matched--;
                 }
-                patternLettersFrenquency[leftCharacter]++;
+                patternLettersFrenquency[leftChar]++;
             }
         }
     }
-    return false;
 }
 
-console.log(permutationInAString('oidbcafa', 'abc'));
+console.log(stringAnagrams('ppqp', 'pq'));
+console.log(stringAnagrams('abbcabc', 'abc'));
