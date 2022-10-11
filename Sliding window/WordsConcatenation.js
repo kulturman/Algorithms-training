@@ -1,4 +1,4 @@
-function find_word_concatenation(str, words) {
+function findWordConcatenations(str, words) {
   if (words.length === 0 || words[0].length === 0) {
     return [];
   }
@@ -48,5 +48,5 @@ function find_word_concatenation(str, words) {
 }
 
 
-console.log(find_word_concatenation('catfoxcat', ['cat', 'fox']));
-console.log(find_word_concatenation('catcatfoxfox', ['cat', 'fox']));
+console.log(findWordConcatenations('catfoxcat', ['cat', 'fox']));
+console.log(findWordConcatenations('catcatfoxfox', ['cat', 'fox']));
