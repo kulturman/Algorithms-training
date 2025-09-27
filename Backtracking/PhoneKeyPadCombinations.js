@@ -1,4 +1,4 @@
-function printCombinations(numbers, currentCombination = "", position = 0) {
+function getCombinations(numbers, currentCombination = "", position = 0) {
     let mapping = {
         '2': ['a', 'b', 'c'],
         '3': ['d', 'e', 'f'],
@@ -20,12 +20,12 @@ function printCombinations(numbers, currentCombination = "", position = 0) {
     for (let i = 0; i < map.length; i++) {
         currentCombination += map[i];
         position++;
-        printCombinations(numbers, currentCombination, position);
+        getCombinations(numbers, currentCombination, position);
         currentCombination = currentCombination.slice(0, -1);
         position--;
     }
 }
 
 let solutions = [];
-printCombinations("23", "");
+getCombinations("23", "");
 console.log(solutions);
