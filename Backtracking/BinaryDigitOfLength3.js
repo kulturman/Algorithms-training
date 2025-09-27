@@ -6,7 +6,7 @@ function printCombinations(combination) {
 
     for (let i = 0; i < 2; i++) {
         combination.push(i);
-        printCombinations(combination, i);
+        printCombinations(combination);
         combination.pop();
     }
 }
